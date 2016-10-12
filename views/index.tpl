@@ -10,7 +10,7 @@
       <h1>Filmälskaren</h1>
     </header>
     <section>
-      <form method="get" action="/search_a_movie">
+      <form method="post" action="/search_a_movie">
         <input type="text" name="search">
         <input type="submit" value"Sök">
       </form>
