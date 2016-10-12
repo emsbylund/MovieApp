@@ -4,6 +4,7 @@ import bottle
 from bottle import route, get, post, run, template, error, static_file, request, redirect, abort, response, app
 import requests, json
 
+# Kallar på Omdb-API:et.
 def Call_Api(url):
     base_url = "http://omdbapi.com/?"
 
@@ -13,7 +14,8 @@ def Call_Api(url):
         return response.json()
     else:
         return "Något gick fel!"
-        
+
+# Hanterar sökningsfunktionen på webbplatsen
 def Search_Movie():
     title = "The Notebook"
     title.replace(" ", "+")
