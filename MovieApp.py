@@ -1,29 +1,21 @@
-# *-* coding:utf-8 *-*
 
 import bottle
-from bottle import route, get, post, run, template, error, static_file, request, redirect, abort, response, app
-import requests, json
+from bottle import route, get, post, run, template, error, static_file, request, redirect, abort, response, app #url
+import json, requests
+import Fetch_Api
 
-# Kallar på Omdb-API:et.
-def Call_Ombd_Api(url):
-    base_url = "http://omdbapi.com/?"
+@route("/")
+def start_page():
+    return template('index')
 
-    response = requests.get(base_url + url)
 
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return "Något gick fel!"
-
-# Hanterar sökningsfunktionen på webbplatsen
-def Search_Movie():
-    title = "The Notebook"
+@route("/search_a_movie", method = "GET")
+def call_search_movie():
+    ''' Get search from form and call Search_Movie function in Fetch_Api.py '''
+    title = request.forms.get('search')
+    print title
     title.replace(" ", "+")
-    url = "t=" + title + "&y=&plot=short&r=json"
-
-    json_movie_data = Call_Ombd_Api(url)
-    print json_movie_data
-
-Search_Movie()
+    json_movie_data = Search_Movie(title)
+    return template("show_result", json_movie_data = json_movie_data)
 
 run(host='localhost', port=8080, debug=True, reloader=True)
