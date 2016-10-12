@@ -7,14 +7,11 @@
   </head>
   <body>
     <header>
-      <h1>Movie App</h1>
+      <h1>Filmälskaren</h1>
     </header>
     <section>
-      <h2>{{title}}</h2>
-      <p>{{year}}</p>
-      <h3>Plot</h3>
-      <p>{{plot}}</p>
-      <p>Författare: {{writer}}</p>
+      <p>{{message}}</p>
+      <a href="/" alt="Return to start page">Go back to start page to try again.</a>
     </section>
   </body>
 </html>
