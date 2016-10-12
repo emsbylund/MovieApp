@@ -9,12 +9,11 @@ def Call_Api(url):
 
     response = requests.get(base_url + url)
 
-    try:
-        if response.status_code() == 200:
-            return response.json()
-        else:
-            return "Något gick fel!"
-
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return "Något gick fel!"
+        
 def Search_Movie():
     title = "The Notebook"
     title.replace(" ", "+")
