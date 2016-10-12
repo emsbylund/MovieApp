@@ -5,7 +5,7 @@ from bottle import route, get, post, run, template, error, static_file, request,
 import requests, json
 
 # Kallar på Omdb-API:et.
-def Call_Api(url):
+def Call_Ombd_Api(url):
     base_url = "http://omdbapi.com/?"
 
     response = requests.get(base_url + url)
@@ -21,7 +21,7 @@ def Search_Movie():
     title.replace(" ", "+")
     url = "t=" + title + "&y=&plot=short&r=json"
 
-    json_movie_data = Call_Api(url)
+    json_movie_data = Call_Ombd_Api(url)
     print json_movie_data
 
 Search_Movie()
