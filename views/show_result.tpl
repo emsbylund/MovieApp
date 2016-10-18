@@ -15,6 +15,7 @@
       <h3>Plot</h3>
       <p>{{plot}}</p>
       <p>Författare: {{writer}}</p>
+      <div>{{!trailer_link}}</div>
     </section>
   </body>
 </html>
