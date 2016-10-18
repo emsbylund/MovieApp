@@ -7,7 +7,7 @@
   </head>
   <body>
     <header>
-      <h1>Filmälskaren</h1>
+      <h1>Movie App</h1>
     </header>
     <section>
       <p>{{message}}</p>
