@@ -15,7 +15,7 @@
       <h3>Plot</h3>
       <p>{{plot}}</p>
       <p>Författare: {{writer}}</p>
-      <div>{{!trailer_link}}</div>
+      <iframe src="{{youtube_video_link}}"></iframe>
     </section>
   </body>
 </html>
