@@ -20,7 +20,7 @@ def Call_Youtube_Api(search_keywords):
     if response.code == 200:
         return video_id
     else:
-        "fel"
+        return "fel"
 
 # Hanterar sökningsfunktionen på webbplatsen
 def Search_Movie(title):

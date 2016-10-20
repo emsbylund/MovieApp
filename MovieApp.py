@@ -26,5 +26,8 @@ def call_search_movie():
     except:
         return template("error", message = "Can't find movie. Try again!")
 
+@route("/show_movie"), method = "POST")
+def show_movie():
+    ''' '''
 
 run(host='localhost', port=8080, debug=True, reloader=True)
