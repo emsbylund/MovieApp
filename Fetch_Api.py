@@ -1,6 +1,6 @@
 # *-* coding:utf-8 *-*
 
-import json, unirest
+import json, unirest, urllib
 
 # Kallar på Omdb-API:et.
 def Call_Ombd_Api(url):
@@ -22,10 +22,11 @@ def Call_Youtube_Api(search_keywords):
     else:
         "fel"
 
-# Hanterar sökningsfunktionen på webbplatsen.
+# Hanterar sökningsfunktionen på webbplatsen
 def Search_Movie(title):
     # För OMDB:
-    url_omdb = "t=" + title + "&y=&plot=short&r=json"
+    title = urllib.urlencode({'t': title})
+    url_omdb = title + "&y=&plot=short&r=json"
     json_movie_data = Call_Ombd_Api(url_omdb)
     # För youtube:
     year = json_movie_data['Year']

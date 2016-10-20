@@ -14,7 +14,7 @@ def start_page():
 def call_search_movie():
     ''' Get search from form and call Search_Movie function in Fetch_Api.py '''
     title = request.forms.get('search')
-    title = title.replace(" ", "+")
+
 
     return_data = Search_Movie(title)
     json_movie_data = return_data[0]
