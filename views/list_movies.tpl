@@ -13,7 +13,7 @@
       <h2>Sökresultat</h2>
       <ul>
         %for movie in imdb_list:
-          <a href="/show_movie/{{movie['title']}}/{{movie['year']}}"><li>{{movie['title']}}, {{movie['year']}}</li></a>
+          <a href="/movie/{{movie['title']}}/{{movie['year']}}"><li>{{movie['title']}}, {{movie['year']}}</li></a>
         % end
       </ul>
     </section>

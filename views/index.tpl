@@ -10,7 +10,7 @@
       <h1>Movie App</h1>
     </header>
     <section>
-      <form method="post" action="/search_a_movie">
+      <form method="post" action="/search">
         <input type="text" name="search">
         <input type="submit" value"Sök">
       </form>
