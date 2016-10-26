@@ -3,9 +3,10 @@
 import json, unirest, urllib
 
 # Kallar på Omdb-API:et.
-def Call_Ombd_Api(url):
+def Call_Ombd_Api(title_year_encoded):
     base_url = "http://omdbapi.com/?"
-    response = unirest.get(base_url + url)
+    last_part_url = "&plot=short&r=json"
+    response = unirest.get(base_url + title_year_encoded + last_part_url)
     if response.code == 200:
         return response.body
     else:
@@ -22,15 +23,62 @@ def Call_Youtube_Api(search_keywords):
     else:
         return "fel"
 
-# Hanterar sökningsfunktionen på webbplatsen
-def Search_Movie(title):
-    # För OMDB:
-    title = urllib.urlencode({'t': title})
-    url_omdb = title + "&y=&plot=short&r=json"
-    json_movie_data = Call_Ombd_Api(url_omdb)
-    # För youtube:
-    year = json_movie_data['Year']
+def Search_Movie(title, year):
+    ''' Calls Omdb and Youtube API to get information about specific movie, and returns it '''
+    # For OMDB:
+    title_year_encoded = urllib.urlencode({'t': title, 'y': year})
+    omdb_movie_data = Call_Ombd_Api(title_year_encoded)
+    # For Youtube:
     search_keywords = title + "+" + year
     youtube_video_id = Call_Youtube_Api(search_keywords)
 
-    return json_movie_data, youtube_video_id
+    return omdb_movie_data, youtube_video_id
+
+def Call_Imdb_Api(title):
+    base_url = "http://www.imdb.com/xml/find?json=1&tt=on&"
+    last_part_url = "%"
+    response = unirest.get(base_url + title + last_part_url)
+    if response.code == 200:
+        return response
+    else:
+        print "Något gick fel!"
+
+def search_Imdb(title):
+    ''' Creates a list of movies from Imdb and return it to call_search_movie in MovieApp.py '''
+    title_url_encoded = urllib.urlencode({'q': title})
+    json_response = Call_Imdb_Api(title_url_encoded)
+
+    # Get title and year from each movie in Imdb-result and put in list
+    correct_movie_list = []
+
+    for movie in json_response.body['title_popular']:
+        movie_dictionary = {}
+        movie_dictionary['year'] = str(movie['description'][:4])
+        movie_dictionary['title'] = str(movie['title'])
+        correct_movie_list.append(movie_dictionary)
+
+    for movie in json_response.body['title_approx']:
+        movie_dictionary = {}
+        movie_dictionary['year'] = str(movie['description'][:4])
+        movie_dictionary['title'] = str(movie['title'])
+        correct_movie_list.append(movie_dictionary)
+
+    return correct_movie_list
+
+    # Splittar titeln för att kunna jämföra varje ord
+    #title_to_compare = title.split(" ")
+
+    # Kontrollerar sökresultatet så att vi endast får resultat där titeln stämmer överens med sökningen
+    #for movie in json_response.body['title_popular']:
+        #for word in title_to_compare:
+            #if word in str(movie['title']):
+                #correct_movie_list['title'] = str(movie['title'])
+                #correct_movie_list.append(movie['title'])
+
+    #for movie in json_response.body['title_approx']:
+        #for word in title_to_compare:
+            #if word in str(movie['title']):
+                #correct_movie_list['title'] = str(movie['title'])
+                #correct_movie_list.append(movie['title'])
+
+    # print correct_movie_list
