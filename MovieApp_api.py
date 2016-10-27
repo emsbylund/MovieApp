@@ -21,12 +21,13 @@ def call_search_movie(search_term):
 
     # Anropa funktion som anropar Imdb API:et
     imdb_list = search_Imdb(search_term)
+    print type(imdb_list);
 
-    #if len(imdb_list) >= 1:
-    response.content_type = 'application/json'
-    return json.dumps(imdb_list)
-    #else:
-        #return "Vad ska returneras här? Skapa någon Json-fil med felmeddelande?"
+    if type(imdb_list) == list:
+        response.content_type = 'application/json'
+        return json.dumps(imdb_list)
+    else:
+        return "error"
 
 @route("/show_movie/<movie_title>/<movie_year>", method = "GET")
 def show_movie(movie_title, movie_year):

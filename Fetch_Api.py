@@ -55,20 +55,22 @@ def search_Imdb(title):
 
     # Get title and year from each movie in Imdb-result and put in list
     correct_movie_list = []
+    try:
+        for movie in json_response['title_popular']:
+            movie_dictionary = {}
+            movie_dictionary['year'] = str(movie['description'][:4])
+            movie_dictionary['title'] = str(movie['title'])
+            correct_movie_list.append(movie_dictionary)
 
-    for movie in json_response['title_popular']:
-        movie_dictionary = {}
-        movie_dictionary['year'] = str(movie['description'][:4])
-        movie_dictionary['title'] = str(movie['title'])
-        correct_movie_list.append(movie_dictionary)
+        for movie in json_response['title_approx']:
+            movie_dictionary = {}
+            movie_dictionary['year'] = str(movie['description'][:4])
+            movie_dictionary['title'] = str(movie['title'])
+            correct_movie_list.append(movie_dictionary)
 
-    for movie in json_response['title_approx']:
-        movie_dictionary = {}
-        movie_dictionary['year'] = str(movie['description'][:4])
-        movie_dictionary['title'] = str(movie['title'])
-        correct_movie_list.append(movie_dictionary)
-
-    return correct_movie_list
+        return correct_movie_list
+    except:
+        return "error"
 
     # Kanske endast visa de filmer som faktiskt är filmer, och inte typ intervju-videos osv?
     # Eller endast visa "populära" resultat?
