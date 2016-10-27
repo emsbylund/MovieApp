@@ -3,9 +3,9 @@ import bottle
 from bottle import route, get, post, run, template, error, static_file, request, redirect, abort, response, app
 import json, urllib, unirest
 
-@route('/')
-def client_app_index():
-    return template('index')
+#@route('/')
+#def client_app_index():
+    #return template('index')
 
 @route("/search", method = "POST")
 def search():
