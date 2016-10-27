@@ -14,17 +14,20 @@ $(document).ready(function () {
 function search() {
   var search_words = $('#search_words').val(); // Get value from search-box
   var myurl = "http://localhost:8080/search_a_movie/" + encodeURIComponent(search_words);
-  console.log(myurl);
   $.ajax({
     url: myurl,
     headers: {"Accept": "application/json"}
   }).done(function(data){
-    list_movies(data);
+    /*console.log(jQuery.isEmptyObject(data));*/
+    if (jQuery.isEmptyObject(data) == true){
+      no_movie_exists(search_words);
+    }else {
+      list_movies(data);
+    }
   });
 };
 
 function list_movies(movies) {
-  console.log(movies);
   $('#movie_list').removeClass('hidden');
   if (movies.length == 1) {
     console.log('hej')
@@ -38,7 +41,6 @@ function list_movies(movies) {
       /*$('#movie_list').append('</ul>');*/
   } else {
     $('#movie_list').empty();
-    console.log('hejhej')
     /* Skriv ut HTML-kod från error.tpl */
   }
 
@@ -63,7 +65,6 @@ function get_single_movie(title, year) {
 }
 
 function display_movie(movie) {
-  console.log(movie);
   $('#movie_list').empty();
   $('#movie_list').append('<h2>' + movie['Title'] + '</h2>');
   $('#movie_list').append('<p>' + movie['Year'] + '</p>');
@@ -71,4 +72,11 @@ function display_movie(movie) {
   $('#movie_list').append('<p>' + movie['Writer'] + '</p>');
   $('#movie_list').append('<p>' + movie['imdbRating'] + '</p>');
   $('#movie_list').append('<iframe src="' +  movie['youtube_link'] + '"></iframe>');
+}
+
+function no_movie_exists(search_words){
+  $('#movie_list').removeClass('hidden');
+  $('#movie_list').empty();
+  $('#movie_list').append('<h2>Hoppsan! Filmen hittades inte! </h2>');
+  $('#movie_list').append('<p>Din sökning ' + search_words + ' gav inga resultat.');
 }

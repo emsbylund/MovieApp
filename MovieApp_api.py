@@ -27,7 +27,8 @@ def call_search_movie(search_term):
         response.content_type = 'application/json'
         return json.dumps(imdb_list)
     else:
-        return "error"
+        error = {}
+        return error
 
 @route("/show_movie/<movie_title>/<movie_year>", method = "GET")
 def show_movie(movie_title, movie_year):
