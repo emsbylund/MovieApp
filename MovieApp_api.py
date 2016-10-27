@@ -15,9 +15,7 @@ def css(filepath):
 
 @route("/search_a_movie/<search_term>", method = "GET")
 def call_search_movie(search_term):
-    ''' Get search words from form and get result from Imdb API.
-    If more than one movie in result - return list of movies.
-    If no movie - return error message.'''
+    ''' Searches a movie in IMDB's API, and returns list of movies based on the search result. '''
 
     # Anropa funktion som anropar Imdb API:et
     imdb_list = search_Imdb(search_term)
