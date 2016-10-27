@@ -1,7 +1,7 @@
 # *-* coding:utf-8 *-*
 import bottle
 from bottle import route, get, post, run, template, error, static_file, request, redirect, abort, response, app
-import json, urllib
+import json, urllib, unirest
 from Fetch_Api import Search_Movie, search_Imdb
 
 # Den här routen + nästa ska vi inte ta med i vår API-dokumentation
@@ -23,14 +23,17 @@ def call_search_movie(search_term):
 
     if type(imdb_list) == list:
         response.content_type = 'application/json'
+        response.status = 200
         return json.dumps(imdb_list)
     else:
         error = {}
+        response.content_type = 'application/json'
+        response.status = 404
         return error
 
 @route("/show_movie/<movie_title>/<movie_year>", method = "GET")
 def show_movie(movie_title, movie_year):
-    ''' Call Omdb and Youtube API and then present information and trailer for movie to the user '''
+    ''' Call Omdb and Youtube API and then return information and trailer for movie to the user '''
     return_data = Search_Movie(movie_title, movie_year)
     omdb_data = return_data[0]
     youtube_video_id = return_data[1]

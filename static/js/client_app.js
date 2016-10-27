@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  '''Handles the submit button for the search form'''
+   /* Handles the submit button for the search form */
   $('#search_form').submit(function(event) {
     search();
     event.preventDefault();
@@ -8,23 +8,23 @@ $(document).ready(function () {
 });
 
 function search() {
-  '''Gets a list of the movies based on the search-word.'''
+  /* Gets a list of the movies based on the search-word. */
   var search_words = $('#search_words').val(); // Get value from search-box
   var myurl = "http://localhost:8080/search_a_movie/" + encodeURIComponent(search_words);
   $.ajax({
     url: myurl,
-    headers: {"Accept": "application/json"}
-  }).done(function(data){
-    if (jQuery.isEmptyObject(data) == true){
-      no_movie_exists(search_words);
-    }else {
+    headers: {"Accept": "application/json"},
+    success: function(data) {
       list_movies(data);
+    },
+    error: function() {
+      no_movie_exists(search_words);
     }
   });
 };
 
 function list_movies(movies) {
-  '''When multible movies excists - presents a list of movies for the user '''
+  /* When multible movies excists - presents a list of movies for the user */
   $('#movie_list').removeClass('hidden');
   if (movies.length == 1) {
   } else if (movies.length >= 2) {
@@ -47,7 +47,7 @@ function list_movies(movies) {
 }
 
 function get_single_movie(title, year) {
-  '''Gets information about a single movie'''
+  /* Gets information about a single movie */
   var url = 'http://localhost:8080/show_movie/' + encodeURIComponent(title) + '/' + encodeURIComponent(year);
   $.ajax({
     url: url,
@@ -58,7 +58,7 @@ function get_single_movie(title, year) {
 }
 
 function display_movie(movie) {
-  '''Presents the chosen/searched for movie to the user'''
+  /* Presents the chosen/searched for movie to the user */
   $('#movie_list').empty();
   $('#movie_list').append('<h2>' + movie['Title'] + '</h2>');
   $('#movie_list').append('<p>' + movie['Year'] + '</p>');
@@ -69,7 +69,7 @@ function display_movie(movie) {
 }
 
 function no_movie_exists(search_words){
-  '''Presents a error message to the user'''
+  /* Presents a error message to the user */
   $('#movie_list').removeClass('hidden');
   $('#movie_list').empty();
   $('#movie_list').append('<h2>Hoppsan! Filmen hittades inte! </h2>');

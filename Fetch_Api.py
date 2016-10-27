@@ -39,9 +39,6 @@ def Call_Imdb_Api(title):
     last_part_url = "%"
     response = unirest.get(base_url + title + last_part_url)
     if response.code == 200:
-        print "Från IMDB-API:et får vi detta svaret:"
-        print response.body
-        print "================================"
         return response.body
     else:
         print "Något gick fel!"
@@ -49,8 +46,6 @@ def Call_Imdb_Api(title):
 def search_Imdb(title):
     ''' Creates a list of movies from Imdb and return it to call_search_movie in MovieApp.py '''
     title_url_encoded = urllib.urlencode({'q': title})
-    print "KODAD TITEL:"
-    print title_url_encoded
     json_response = Call_Imdb_Api(title_url_encoded)
 
     # Get title and year from each movie in Imdb-result and put in list
