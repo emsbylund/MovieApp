@@ -32,17 +32,17 @@ function list_movies(movies) {
   } else if (movies.length >= 2) {
     /* Skriv ut HTML-kod från list_movies.tpl.
     Loopa igenom listan med filmer, skriv li för varje. */
-    $('#movie_list').append('<ul id="movie_links">');
+    $('#movie_list').append('<ul id="movie_links"></ul>');
     for (i = 0; i < movies.length; i++){
-      $('#movie_list').append('<li>' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '<span>' + '</li>');
+      $('#movie_links').append('<li>' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '<span>' + '</li>');
     }
-    $('#movie_list').append('</ul>');
+      /*$('#movie_list').append('</ul>');*/
   } else {
     console.log('hejhej')
     /* Skriv ut HTML-kod från error.tpl */
   }
 
-  console.log($('#movie_links').each('li'));
+  console.log($('#movie_links').each());
   /*$('#movie_links li').each().click(function() {
     console.log($(this).find('span').html());
   });*/
