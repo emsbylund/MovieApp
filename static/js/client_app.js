@@ -51,9 +51,13 @@ function get_single_movie(title, year) {
   var url = 'http://localhost:8080/show_movie/' + encodeURIComponent(title) + '/' + encodeURIComponent(year);
   $.ajax({
     url: url,
-    headers: {"Accept": "application/json"}
-  }).done(function(data){
-    display_movie(data);
+    headers: {"Accept": "application/json"},
+    success: function(data) {
+      display_movie(data);
+    },
+    error: function() {
+      no_movie_exists(title);
+    }
   });
 }
 

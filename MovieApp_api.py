@@ -40,7 +40,14 @@ def show_movie(movie_title, movie_year):
     youtube_link = "https://www.youtube.com/embed/" + youtube_video_id
     omdb_data['youtube_link'] = youtube_link # Lägger till youtube-länken i omdb-dictionary
 
-    response.content_type = 'application/json'
-    return json.dumps(omdb_data)
+    if omdb_data['Response'] == 'True':
+        response.content_type = 'application/json'
+        response.status = 200
+        return json.dumps(omdb_data)
+    else:
+        error = {}
+        response.content_type = 'application/json'
+        response.status = 404
+        return error
 
 run(host='localhost', port=8080, debug=True, reloader=True)
