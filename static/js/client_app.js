@@ -1,7 +1,3 @@
-/*$(document).ready(function () {
-  console.log("JQuery funkar!");  // Skriver ut en text till konsollen.
-});*/
-
 $(document).ready(function () {
   // Todo: Lägga till enter
   $('#search_form').submit(function(event) {
@@ -38,7 +34,6 @@ function list_movies(movies) {
     for (i = 0; i < movies.length; i++){
       $('#movie_links').append('<li>' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '</span>' + '</li>');
     }
-      /*$('#movie_list').append('</ul>');*/
   } else {
     $('#movie_list').empty();
     /* Skriv ut HTML-kod från error.tpl */
