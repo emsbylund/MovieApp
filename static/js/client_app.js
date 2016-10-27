@@ -1,8 +1,7 @@
 $(document).ready(function () {
-  // Todo: Lägga till enter
   $('#search_form').submit(function(event) {
     search();
-    event.preventDefault();
+    event.preventDefault(); 
   });
   $('#submit_button').click(search);
 });
