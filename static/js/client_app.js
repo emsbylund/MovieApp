@@ -28,27 +28,47 @@ function list_movies(movies) {
   $('#movie_list').removeClass('hidden');
   if (movies.length == 1) {
     console.log('hej')
-    /* Skriv ut HTML-kod från show_result.tpl */
+    /* Skicka till display_movie() där vi skriver ut HTML-kod för att visa info om film (show_movie.tpl) */
   } else if (movies.length >= 2) {
-    /* Skriv ut HTML-kod från list_movies.tpl.
-    Loopa igenom listan med filmer, skriv li för varje. */
+    $('#movie_list').empty();
     $('#movie_list').append('<ul id="movie_links"></ul>');
     for (i = 0; i < movies.length; i++){
-      $('#movie_links').append('<li>' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '<span>' + '</li>');
+      $('#movie_links').append('<li>' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '</span>' + '</li>');
     }
       /*$('#movie_list').append('</ul>');*/
   } else {
+    $('#movie_list').empty();
     console.log('hejhej')
     /* Skriv ut HTML-kod från error.tpl */
   }
 
-  console.log($('#movie_links').each());
-  /*$('#movie_links li').each().click(function() {
-    console.log($(this).find('span').html());
-  });*/
+  $('#movie_links').children().click( function() {
+    var li_elements = $(this).children();
+    var title = $(li_elements[0]).text();
+    var year = $(li_elements[1]).text();
+    get_single_movie(title, year)
+  });
+
 }
 
-function display_movie() {
+function get_single_movie(title, year) {
+  var url = 'http://localhost:8080/show_movie/' + encodeURIComponent(title) + '/' + encodeURIComponent(year);
+  console.log(url);
+  $.ajax({
+    url: url,
+    headers: {"Accept": "application/json"}
+  }).done(function(data){
+    display_movie(data);
+  });
+}
 
-
+function display_movie(movie) {
+  console.log(movie);
+  $('#movie_list').empty();
+  $('#movie_list').append('<h2>' + movie['Title'] + '</h2>');
+  $('#movie_list').append('<p>' + movie['Year'] + '</p>');
+  $('#movie_list').append('<p>' + movie['Plot'] + '</p>');
+  $('#movie_list').append('<p>' + movie['Writer'] + '</p>');
+  $('#movie_list').append('<p>' + movie['imdbRating'] + '</p>');
+  $('#movie_list').append('<iframe src="' +  movie['youtube_link'] + '"></iframe>');
 }
