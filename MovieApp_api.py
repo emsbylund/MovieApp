@@ -4,7 +4,8 @@ from bottle import route, get, post, run, template, error, static_file, request,
 import json, urllib, unirest
 from Fetch_Api import Search_Movie, search_Imdb
 
-# Den här routen + nästa ska vi inte ta med i vår API-dokumentation
+# Route "/" samt "/static/<filepath:path>" är inte en del av vårt API,
+# utan är endast till för att vår klient ska kunna köras.
 @route("/", method="GET")
 def index_page():
     return template("index")
@@ -16,10 +17,7 @@ def css(filepath):
 @route("/search_a_movie/<search_term>", method = "GET")
 def call_search_movie(search_term):
     ''' Searches a movie in IMDB's API, and returns list of movies based on the search result. '''
-
-    # Anropa funktion som anropar Imdb API:et
     imdb_list = search_Imdb(search_term)
-    print type(imdb_list);
 
     if type(imdb_list) == list:
         response.content_type = 'application/json'

@@ -66,24 +66,3 @@ def search_Imdb(title):
         return correct_movie_list
     except:
         return "error"
-
-    # Kanske endast visa de filmer som faktiskt är filmer, och inte typ intervju-videos osv?
-    # Eller endast visa "populära" resultat?
-
-    # Splittar titeln för att kunna jämföra varje ord
-    #title_to_compare = title.split(" ")
-
-    # Kontrollerar sökresultatet så att vi endast får resultat där titeln stämmer överens med sökningen
-    #for movie in json_response.body['title_popular']:
-        #for word in title_to_compare:
-            #if word in str(movie['title']):
-                #correct_movie_list['title'] = str(movie['title'])
-                #correct_movie_list.append(movie['title'])
-
-    #for movie in json_response.body['title_approx']:
-        #for word in title_to_compare:
-            #if word in str(movie['title']):
-                #correct_movie_list['title'] = str(movie['title'])
-                #correct_movie_list.append(movie['title'])
-
-    # print correct_movie_list
