@@ -59,7 +59,7 @@
 					<section id="wrap" class="col-md-6 offset-md-3">
 						<form id="search_form">
 							<input type="text" name="search" id="search_words">
-							<input type="button" placeholder="Type the movies title here" id="submit_button">
+							<input type="button" id="submit_button">
 						</form>
 					</section>
 				</div>
