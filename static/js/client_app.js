@@ -31,7 +31,7 @@ function list_movies(movies) {
     $('#movie_list').empty();
     $('#movie_list').append('<ul id="movie_links"></ul>');
     for (i = 0; i < movies.length; i++){
-      $('#movie_links').append('<li>' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '</span>' + '</li>');
+      $('#movie_links').append('<li class="list-group-item">' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '</span>' + '</li>');
     }
   } else {
     $('#movie_list').empty();

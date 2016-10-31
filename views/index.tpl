@@ -65,7 +65,7 @@
 			</div>
 		</div>
 	</header>
-	<section id="movie_list" class="hidden"></section>
+	<section id="movie_list" class="hidden list-group"></section>
 
 	<section id="team" class="section gray-bg">
 		<div class="container">

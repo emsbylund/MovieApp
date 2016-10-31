@@ -1,3 +1,11 @@
 .hidden {
   display:none;
 }
+#movie_list li:hover{
+  background-color: #D18080;
+}
+
+#movie_list{
+  width: 50%;
+  margin: auto;
+}
