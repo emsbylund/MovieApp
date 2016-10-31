@@ -71,6 +71,7 @@ h1 {
 
 h2 {
 	font-size: 48px;
+	text-align: center;
 }
 
 h3 {
@@ -527,7 +528,7 @@ section {
 	height: 250px;
 	padding-top: 60px;
 	opacity: 0;
-	background: rgba(0, 168, 255, 0.9);
+	background: rgba(80, 10, 0, 0.5);
 	-webkit-transition: opacity 0.45s ease;
 	transition: opacity 0.45s ease;
 }
@@ -658,7 +659,6 @@ section {
 
 footer {
 	padding: 140px 0 40px;
-	background: url('../img/footer.jpg');
 	-webkit-background-size: cover;
 	background-size: cover;
 }
@@ -1029,9 +1029,6 @@ footer .social-footer li:hover a {
 	color: #989da0;
 }
 
-.margin-top {
-	margin-top: 150px;
-}
 
 @media(max-width:992px) {
 	h1 {
