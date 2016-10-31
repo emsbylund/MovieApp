@@ -48,8 +48,8 @@
 				<div class="row">
 					<div class="header-text">
 						<div class="col-md-12 text-center col-centered">
-							<h2 class="light white">MovieApp</h3>
-							<h3 class="light white">- when you just want it simple</h3>
+							<h2 class="light black">MovieApp</h3>
+							<h3 class="light black">- when you just want it simple</h3>
 							<h1 class="white typed">It's all about movies...</h1>
 							<span class="typed-cursor">|</span>
 						</div>
@@ -111,8 +111,8 @@
 	</section>
 		<!--lägg team här-->
 	<footer>
-		<p>© Emma Bylund, Sofia Lundkvist</p>
-		<p>Kontakt: <a href="mailto:emmabylund@live.se">emma.bylund@live.se</a> eller <a href="mailto:sofialundkvist@outlook.com">sofialundkvist@outlook.com</a></p>
+		<p class="text-center">© Emma Bylund, Sofia Lundkvist</p>
+		<p class="text-center">Kontakt: <a href="mailto:emmabylund@live.se">emma.bylund@live.se</a> eller <a href="mailto:sofialundkvist@outlook.com">sofialundkvist@outlook.com</a></p>
 	</footer>
 	<!-- Holder for mobile navigation -->
 	<div class="mobile-nav">

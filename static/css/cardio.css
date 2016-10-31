@@ -658,7 +658,7 @@ section {
 /* Footer */
 
 footer {
-	padding: 140px 0 40px;
+	padding: 40px;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
@@ -1001,8 +1001,12 @@ footer .social-footer li:hover a {
 }
 /* Colors */
 
+.black {
+	color: #000;
+}
 .white {
 	color: white;
+	text-shadow: 2px 2px 8px #666;
 }
 
 .light-white {
