@@ -44,28 +44,28 @@
 		<img src="/static/img/loader.gif" alt="Preloader image">
 	</div>
 	<header id="intro">
-		<div class="container">
-			<div class="table">
-				<div class="header-text">
-					<div class="row">
-						<div class="col-md-12 text-center">
+		<div class="container-fluid">
+				<div class="row">
+					<div class="header-text">
+						<div class="col-md-12 text-center col-centered">
 							<h2 class="light white">MovieApp</h3>
 							<h3 class="light white">- when you just want it simple</h3>
 							<h1 class="white typed">It's all about movies...</h1>
 							<span class="typed-cursor">|</span>
-							<section id="wrap">
-								<form id="search_form">
-									<input type="text" name="search" id="search_words">
-									<input type="button" placeholder="Type the movies title here" id="submit_button">
-								</form>
-							</section>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="row">
+					<section id="wrap" class="col-md-6 offset-md-3">
+						<form id="search_form">
+							<input type="text" name="search" id="search_words">
+							<input type="button" placeholder="Type the movies title here" id="submit_button">
+						</form>
+					</section>
+				</div>
 		</div>
 	</header>
-	<section id="movie_list" class="hidden list-group"></section>
+	<section id="movie_list" class="hidden"></section>
 
 	<section id="team" class="section gray-bg">
 		<div class="container">

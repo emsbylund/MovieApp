@@ -29,7 +29,9 @@ function list_movies(movies) {
   if (movies.length == 1) {
   } else if (movies.length >= 2) {
     $('#movie_list').empty();
-    $('#movie_list').append('<ul id="movie_links"></ul>');
+    $('#movie_list').append('<h2 class="text-center">Sökresultat</h2>');
+    $('#movie_list').append('<p class="text-center">Välj en film i listan för att se mer information om den.</p>');
+    $('#movie_list').append('<ul id="movie_links" class="list-group"></ul>');
     for (i = 0; i < movies.length; i++){
       $('#movie_links').append('<li class="list-group-item">' + '<span>' + movies[i]['title'] + '</span>' + ', ' +  '<span>' + movies[i]['year'] + '</span>' + '</li>');
     }
