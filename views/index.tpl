@@ -56,10 +56,10 @@
 					</div>
 				</div>
 				<div class="row">
-					<section id="wrap" class="col-md-6 offset-md-3">
+					<section id="wrap" class="col-md-6 col-md-offset-3">
 						<form id="search_form">
-							<input type="text" name="search" id="search_words">
-							<input type="button" placeholder="Type the movies title here" id="submit_button">
+							<input type="text" name="search" id="search_words" placeholder="Search here...">
+							<input type="button" id="submit_button">
 						</form>
 					</section>
 				</div>
@@ -67,50 +67,52 @@
 	</header>
 	<section id="movie_list" class="hidden"></section>
 
-	<footer>
-		<section class="section gray-bg team">
-			<div class="container">
-				<div class="row title text-center">
-					<h2 class="margin-top">Team</h2>
-					<h4 class="light muted">We're a dream team!</h4>
+	<section class="section gray-bg team">
+		<div class="container">
+			<div class="row title text-center">
+				<h2 class="margin-top">Team</h2>
+				<h4 class="light muted">We're a dream team!</h4>
+			</div>
+			<div class="wraptheteam">
+			<!--<div class="row">-->
+				<div class="col-md-6">
+					<div class="team text-center">
+						<div class="cover" style="background:url('/static/img/team/team-cover2.jpg'); background-size:cover;">
+							<div class="overlay text-center">
+								<h3 class="white"></h3>
+								<h5 class="light light-white"></h5>
+							</div>
+						</div>
+						<img src="/static/img/team/team1.jpg" alt="Team Image" class="avatar">
+						<div class="title">
+							<h4>Emma Bylund</h4>
+							<h5 class="muted regular">Informationarchitect</h5>
+						</div>
+					</div>
 				</div>
-				<div class="wraptheteam">
-				<!--<div class="row">-->
-					<div class="col-md-6">
-						<div class="team text-center">
-							<div class="cover" style="background:url('/static/img/team/team-cover2.jpg'); background-size:cover;">
-								<div class="overlay text-center">
-									<h3 class="white"></h3>
-									<h5 class="light light-white"></h5>
-								</div>
-							</div>
-							<img src="/static/img/team/team1.jpg" alt="Team Image" class="avatar">
-							<div class="title">
-								<h4>Emma Bylund</h4>
-								<h5 class="muted regular">Informationarchitect</h5>
+				<div class="col-md-6">
+					<div class="team text-center">
+						<div class="cover" style="background:url('/static/img/team/team-cover3.jpg'); background-size:cover;">
+							<div class="overlay text-center">
+								<h3 class="white"></h3>
+								<h5 class="light light-white"></h5>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="team text-center">
-							<div class="cover" style="background:url('/static/img/team/team-cover3.jpg'); background-size:cover;">
-								<div class="overlay text-center">
-									<h3 class="white"></h3>
-									<h5 class="light light-white"></h5>
-								</div>
-							</div>
-							<img src="/static/img/team/team2.jpg" alt="Team Image" class="avatar">
-							<div class="title">
-								<h4>Sofia Lundkvist</h4>
-								<h5 class="muted regular">Informationarchitect</h5>
-							</div>
+						<img src="/static/img/team/team2.jpg" alt="Team Image" class="avatar">
+						<div class="title">
+							<h4>Sofia Lundkvist</h4>
+							<h5 class="muted regular">Informationarchitect</h5>
 						</div>
 					</div>
-				<!--</div>-->
-			</div>
-			</div>
-		</section>
+				</div>
+			<!--</div>-->
+		</div>
+		</div>
+	</section>
 		<!--lägg team här-->
+	<footer>
+		<p>© Emma Bylund, Sofia Lundkvist</p>
+		<p>Kontakt: <a href="mailto:emmabylund@live.se">emma.bylund@live.se</a> eller <a href="mailto:sofialundkvist@outlook.com">sofialundkvist@outlook.com</a></p>
 	</footer>
 	<!-- Holder for mobile navigation -->
 	<div class="mobile-nav">
