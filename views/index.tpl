@@ -49,8 +49,8 @@
 					<div class="header-text">
 						<div class="col-md-12 text-center col-centered">
 							<h2 class="light black">MovieApp</h3>
-							<h3 class="light black">- when you just want it simple</h3>
-							<h1 class="white typed">It's all about movies...</h1>
+							<h3 class="light black">Search and find any movie</h3>
+							<h1 class="white typed">Cause it's all about movies...</h1>
 							<span class="typed-cursor">|</span>
 						</div>
 					</div>
