@@ -10,6 +10,15 @@ html, body {
 #movie_list{
   width: 50%;
   margin: 3% auto;
+  text-align: center;
+}
+
+#movie_list p:first-child {
+  padding-top: 30px;
+}
+
+#movie_links {
+  margin-top: 20px;
 }
 
 #movie_links li {
@@ -106,6 +115,10 @@ input[type="button"]:hover {
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+
+.inline {
+  display: inline;
 }
 
 /* Help classes END */

@@ -66,11 +66,17 @@ function get_single_movie(title, year) {
 function display_movie(movie) {
   /* Presents the chosen/searched for movie to the user */
   $('#movie_list').empty();
-  $('#movie_list').append('<h2>' + movie['Title'] + '</h2>');
-  $('#movie_list').append('<p>' + movie['Year'] + '</p>');
-  $('#movie_list').append('<p>' + movie['Plot'] + '</p>');
-  $('#movie_list').append('<p>' + movie['Writer'] + '</p>');
-  $('#movie_list').append('<p>' + movie['imdbRating'] + '</p>');
+  $('#movie_list').append('<h2 class="text-center">' + movie['Title'] + '</h2>');
+  $('#movie_list').append('<p class="text-center">' + movie['Plot'] + '</p>');
+  /*$('#movie_list').append('<h4 class="inline">Year: </h4>');*/
+  $('#movie_list').append('<p>Year: ' + movie['Year'] + '</p>');
+  $('#movie_list').append('<br>');
+  /*$('#movie_list').append('<h4 class="inline">Writer: </h4>');*/
+  $('#movie_list').append('<p>Writer: ' + movie['Writer'] + '</p>');
+  $('#movie_list').append('<br>');
+  /*$('#movie_list').append('<h4 class="inline">Rating: </h4>');*/
+  $('#movie_list').append('<p>Rating: ' + movie['imdbRating'] + '</p>');
+  $('#movie_list').append('<br>');
   $('#movie_list').append('<iframe src="' +  movie['youtube_link'] + '"></iframe>');
 }
 
